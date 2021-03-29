@@ -66,12 +66,37 @@ class Config extends StatelessWidget {
               child: Text('BEWAAR CONFIGURATIE', style: TextStyle(fontSize: 22.0),),
               color: Colors.blue,
               textColor: Colors.white,
-              onPressed: () {},
+              onPressed: () {showAlertDialog(context);},
             ),
           ),
-
         ],
       ),
     );
   }
+}
+showAlertDialog(BuildContext context) {
+  // Create button
+  Widget okButton = FlatButton(
+    child: Text("OK"),
+    onPressed: () {
+      Navigator.of(context).pop();
+    },
+  );
+
+  // Create AlertDialog
+  AlertDialog alert = AlertDialog(
+    title: Text("Instellingen SMTP-server"),
+    content: Text("Werden opgeslagen en zijn correct!"),
+    actions: [
+      okButton,
+    ],
+  );
+
+  // show the dialog
+  showDialog(
+    context: context,
+    builder: (BuildContext context) {
+      return alert;
+    },
+  );
 }

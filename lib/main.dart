@@ -44,7 +44,7 @@ class QuizApp extends StatelessWidget {
             ),
             body: TabBarView(
               children: [
-                Welkom(),
+                WelkomList(),
                 Quiz(),
                 Config()
               ],
